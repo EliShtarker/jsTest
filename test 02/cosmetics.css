@@ -1,0 +1,133 @@
+body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+img {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    mix-blend-mode: multiply;
+}
+
+
+tr{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+th,
+td {
+    text-align: center;
+    font-size: large;
+    border: 10px double black;
+    border-right: 10px double gainsboro;
+    border-bottom: 10px double gainsboro;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: transparent;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+
+
+}
+
+#container {
+    width: max-content;
+    height: max-content;
+    background: linear-gradient(to top, gray, rgba(19, 18, 18, 0.6));
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#resultContainer {
+    position: relative;
+    animation: myResultContainer 2s infinite;
+    width: fit-content;
+    height: auto;
+    background: linear-gradient(to top, red, blue);
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px;
+    color: white;
+}
+
+@keyframes myResultContainer{
+    25% { background: linear-gradient(to top, red, blue);transform: scale(1);}
+    50% { background: linear-gradient(to left, blue, red);transform: scale(1.1);}
+    75% { background: linear-gradient(to bottom, red, blue);transform: scale(1);}
+    100% { background: linear-gradient(to right, blue, red);transform: scale(1.1);}
+}
+
+
+.colorGreen{
+    background-color: green;
+}
+
+.removeBtn {
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 5px;
+}
+#inventoryBody {
+    tr:first-child {
+        background: rgba(0, 189, 0, 0.400);
+    }
+
+    tr:nth-child(3) {
+        background: rgba(189, 0, 0, 0.400);
+    }
+
+    tr:nth-child(4) {
+        background: rgba(0, 189, 0, 0.200);
+    }
+
+    tr:nth-child(5) {
+        background: rgba(189, 0, 0, 0.200);
+    }
+}
+.buy {
+    background-color: green;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 5px;
+}
+
+
+a {
+    font-weight: bolder;
+    text-decoration: none;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+.stars{
+    margin: 0px;
+}
+.buy:hover{
+    transition: 0.4s ease-in-out;
+    padding: 8px;
+}
+
+.removeBtn:hover{
+    transition: 0.4s ease-in-out;
+    padding: 8px;
+}
+ 
+ 
