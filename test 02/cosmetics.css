@@ -1,6 +1,6 @@
 body {
     position: absolute;
-    top: 50%;
+    top:48%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
@@ -126,9 +126,22 @@ a {
     padding: 8px;
 }
 
+.buy:active{
+    transition: 0.4s ease-in-out;
+    padding: 2px;
+    background-color: darkgreen;
+}
+
+
 .removeBtn:hover{
     transition: 0.4s ease-in-out;
     padding: 8px;
+}
+
+.removeBtn:active{
+    background-color: darkred;
+    transition: 0.4s ease-in-out;
+    padding:2px;
 }
  
 #itemsOrderedContainer{

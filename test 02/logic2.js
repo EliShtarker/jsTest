@@ -82,17 +82,17 @@ function buy(index) {
     let b = orderedTv.length
     let numb = parseFloat(b)
     let y = orderedTv.length + 1
-   
+
 
     const tv = inventory[index]
-    if (orderedTv.includes(tv)) {
-        //orderedTv.splice(orderedTv.indexOf(tv), 1)
-    } else {
+    if (orderedTv.includes(tv)) { } else {
         orderedTv.push(tv);
         sum += orderedTv[b].price;
-        //sum = orderedTv[index].price + sum
-        x.innerHTML = `You have [${y}] items in your crate your total price is ${sum}`
         itemsOrderedContainer.innerHTML = orderedTv.map(orderListToHTML)
+        setTimeout(() => {
+            console.log("this is the second message");
+        x.innerHTML = `You have [${y}] items in your crate your total price is ${sum}`
+    }, 100);
     }
 }
 
@@ -106,8 +106,10 @@ function removeBtn() {
     }
     let y = orderedTv.length;
     itemsOrderedContainer.innerHTML = orderedTv.map(orderListToHTML).join('');
-
-    x.innerHTML = y == 0 ? "" : `You have [${y}] items in your crate your total price is ${sum}`;
+    setTimeout(() => {
+        console.log("this is the second message");
+        x.innerHTML = y == 0 ? "" : `You have [${y}] items in your crate your total price is ${sum}`;
+    }, 100);
 }
 
 function orderListToHTML(tv, index) {
