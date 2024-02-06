@@ -79,17 +79,20 @@ makeTables();
 let x = document.getElementById("resultContainer");
 
 function buy(index) {
+    let b = orderedTv.length
+    let numb = parseFloat(b)
     let y = orderedTv.length + 1
-
+   
 
     const tv = inventory[index]
     if (orderedTv.includes(tv)) {
         //orderedTv.splice(orderedTv.indexOf(tv), 1)
     } else {
-        orderedTv.push(tv)
-        sum = parseFloat(orderedTv[index].price + sum)
+        orderedTv.push(tv);
+        sum += orderedTv[b].price;
+        //sum = orderedTv[index].price + sum
+        x.innerHTML = `You have [${y}] items in your crate your total price is ${sum}`
         itemsOrderedContainer.innerHTML = orderedTv.map(orderListToHTML)
-        x.innerHTML = `You have [${y}] items in your crate your total price is ${sum}`;
     }
 }
 
