@@ -51,18 +51,19 @@ const inventory = [
     }
 ];
 
-
+let orderedTv = []
+let sum = 0
 function copyObject(tv, index) {
     return `<tr id="tr${index}">
-        <th>${index}</th>
+        <th>${index + 1}</th>
         <td><a href='${tv.image}' target="_blank"><img src='${tv.image}' alt='monitor'></a></td>
         <td><img src='${tv.company}' alt='logo'></td>
-        <td>${tv.address}</td>
         <td>${tv.city}</td>
+        <td>${tv.address}</td>
         <td>${formatter.format(tv.price)}</td>
         <td><a href='${tv.link}'target="_blank">Click</a></td>
         <td><span class="stars">${tv.rate}</span></td>
-        <td><button class="buy" onclick='buy()'>Buy</button><button class="removeBtn" onclick='removeBtn()'>Remove</button></td>
+        <td><button class="buy" onclick='buy(${index})'>${orderedTv.includes(tv) ? "Buy" : "Buy"}</button><button class="removeBtn" onclick='removeBtn()'>Remove</button></td>
     </tr>`;
 }
 
@@ -73,18 +74,47 @@ function makeTables() {
 makeTables();
 
 
-sum = 0;
+
 
 let x = document.getElementById("resultContainer");
 
-function buy() {
-    sum++
-    x.innerHTML = `You have [${sum}] items in your crate`;
+function buy(index) {
+    let y = orderedTv.length + 1
+
+
+    const tv = inventory[index]
+    if (orderedTv.includes(tv)) {
+        //orderedTv.splice(orderedTv.indexOf(tv), 1)
+    } else {
+        orderedTv.push(tv)
+        sum = parseFloat(orderedTv[index].price + sum)
+        itemsOrderedContainer.innerHTML = orderedTv.map(orderListToHTML)
+        x.innerHTML = `You have [${y}] items in your crate your total price is ${sum}`;
+    }
 }
+
 
 function removeBtn() {
+    let b = orderedTv.length
+    let numb = parseFloat(b)
+    if (b > 0) {
+        sum -= orderedTv[b - 1].price;
+        orderedTv.pop();
+    }
+    let y = orderedTv.length;
+    itemsOrderedContainer.innerHTML = orderedTv.map(orderListToHTML).join('');
 
-    sum == 0 ? sum = 0 : sum--
-
-    x.innerHTML = sum <= 0 ? "" : `You have [${sum}] items in your crate`;
+    x.innerHTML = y == 0 ? "" : `You have [${y}] items in your crate your total price is ${sum}`;
 }
+
+function orderListToHTML(tv, index) {
+    return `<div class="dataContainer><tr>
+    <th class="orderPrint" id="titlePrint"><span id="index">${index + 1}</span></th>
+    <td class="orderPrint"><img src='${tv.company}' alt='logo'></td>
+    <td><span class="details">${tv.city}</span></td>
+    <td class="orderPrint"><span class="details">${formatter.format(tv.price)}</span></td>
+    </tr></div>`
+
+}
+
+

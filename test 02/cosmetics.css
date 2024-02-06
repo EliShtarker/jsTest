@@ -3,6 +3,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: white;
 }
 
 img {
@@ -130,4 +131,33 @@ a {
     padding: 8px;
 }
  
- 
+#itemsOrderedContainer{
+    position: relative;
+    width: fit-content;
+    height: auto;
+    background: linear-gradient(to top, gray,white);
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px;
+    color: white;
+    display: flex;
+}
+.dataContainer{
+    text-align: center;
+}
+#titlePrint{
+    border-radius: 15px;
+    padding: 5px;
+    border: 2px double black;
+    background: rgba(0, 0, 0, 0.3)
+    
+}
+#index{
+    position: absolute;
+    top: auto;
+    left: auto;
+    color: black;
+}
+.details{
+ color: black;
+}
