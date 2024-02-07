@@ -91,7 +91,7 @@ function buy(index) {
         itemsOrderedContainer.innerHTML = orderedTv.map(orderListToHTML)
         setTimeout(() => {
             console.log("this is the second message");
-        x.innerHTML = `You have [${y}] items in your crate your total price is ${sum}`
+        x.innerHTML = `You have [${y}] items in your crate your total price is ${formatter.format(sum)}`
     }, 100);
     }
 }
@@ -108,7 +108,7 @@ function removeBtn() {
     itemsOrderedContainer.innerHTML = orderedTv.map(orderListToHTML).join('');
     setTimeout(() => {
         console.log("this is the second message");
-        x.innerHTML = y == 0 ? "" : `You have [${y}] items in your crate your total price is ${sum}`;
+        x.innerHTML = y == 0 ? "" : `You have [${y}] items in your crate your total price is ${formatter.format(sum)}`;
     }, 100);
 }
 
